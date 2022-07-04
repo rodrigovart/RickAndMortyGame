@@ -9,4 +9,6 @@ target 'rickandmorty' do
   pod 'Alamofire'
   pod 'DropDown'
   pod 'SCLAlertView'
+  pod 'SwiftyJSON'
+  pod 'iProgressHUD'
 end
