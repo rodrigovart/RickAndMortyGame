@@ -8,18 +8,32 @@
 import UIKit
 
 struct Matches {
-    var match: Bool = false
-    var character: String = ""
+    var matches: CharacterSelected
 }
 
 struct CharacterSelected {
     var name: String = ""
+    var match: Bool = false
     var index: Int = 0
-    var selected: Bool?
 }
 
 class GameViewModel {
-    var cardsMock: [String] = [
+    var cardsChactersMock: [String] = [
+        "beth",
+        "beth",
+        "jerry",
+        "jerry",
+        //        "jessica",
+        //        "morty",
+        //        "pessoa-passaro",
+        //        "pickle-rick",
+        //        "rick",
+        //        "summer",
+        //        "meeseeks",
+        //        "scroopy"
+    ]
+    
+    var cardsChacters: [String] = [
         "beth",
         "jerry",
         "jessica",
@@ -34,27 +48,44 @@ class GameViewModel {
     
     var cards = [String]()
     
-    var match = [String]()
+    var charactersSelected = [String]()
     
-    var matches = [Matches]()
+    public var matches: [Matches] = []
+    
+    var charactersMatched: [CharacterSelected] = []
     
     func initGame() {
-        let cardsReversed = Array(cardsMock.reversed())
-        let cardsSorted = Array(cardsMock.sorted())
+        let cardsReversed = Array(cardsChacters.reversed())
+        let cardsSorted = Array(cardsChacters.sorted())
         
         cards.append(contentsOf: cardsReversed)
         cards.append(contentsOf: cardsSorted)
+        
+        cards.shuffle()
     }
     
-    func isMatchCard(character: String) {
-        match.append(character)
-
-        if match.count == 2 {
-            if match[0] == match[1] {
-                matches.append(Matches(match: true, character: character))
+    func initGameMock() {
+        cards.append(contentsOf: cardsChactersMock)
+        
+        //        cards.shuffle()
+    }
+    
+    func isMatchCard(character: String, match: Bool, index: Int) -> Bool {
+        charactersSelected.append(character)
+        
+        if charactersSelected.count == 2 {
+            if charactersSelected[0] == charactersSelected[1] {
+                charactersMatched.append(CharacterSelected(name: character, match: true, index: index))
+                return true
             }
-            
-            match.removeAll()
+        }
+        
+        return false
+    }
+    
+    func matchesCard() -> [CharacterSelected] {
+        return charactersMatched.filter { characters in
+            return characters.match == true
         }
     }
 }

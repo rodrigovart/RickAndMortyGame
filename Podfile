@@ -11,4 +11,5 @@ target 'rickandmorty' do
   pod 'SCLAlertView'
   pod 'SwiftyJSON'
   pod 'iProgressHUD'
+  pod 'AnimatedCollectionViewLayout'
 end

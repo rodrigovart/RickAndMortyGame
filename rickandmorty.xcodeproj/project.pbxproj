@@ -25,6 +25,7 @@
 		9D92CC47286DDCC900BE4485 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D92CC46286DDCC900BE4485 /* Constants.swift */; };
 		9D92CC49286E371F00BE4485 /* UIViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D92CC48286E371F00BE4485 /* UIViewControllerDelegate.swift */; };
 		9D92CC4D286E42D600BE4485 /* ChooseCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D92CC4C286E42D600BE4485 /* ChooseCharacterView.swift */; };
+		9DDDF93A28735251001CEE93 /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDDF93928735251001CEE93 /* Array+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		9D92CC46286DDCC900BE4485 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9D92CC48286E371F00BE4485 /* UIViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerDelegate.swift; sourceTree = "<group>"; };
 		9D92CC4C286E42D600BE4485 /* ChooseCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCharacterView.swift; sourceTree = "<group>"; };
+		9DDDF93928735251001CEE93 /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 			children = (
 				9D92CC3C286DDB5400BE4485 /* UIView+Ext.swift */,
 				9D92CC48286E371F00BE4485 /* UIViewControllerDelegate.swift */,
+				9DDDF93928735251001CEE93 /* Array+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				9D29F5D6286B2A4300274A64 /* SceneDelegate.swift in Sources */,
 				9D92CC41286DDBEC00BE4485 /* ChooseCharacterViewModel.swift in Sources */,
 				9D92CC3A286DDA1400BE4485 /* ChooseCharacterViewController.swift in Sources */,
+				9DDDF93A28735251001CEE93 /* Array+Ext.swift in Sources */,
 				9D92CC44286DDC2A00BE4485 /* Character.swift in Sources */,
 				9D92CC47286DDCC900BE4485 /* Constants.swift in Sources */,
 			);

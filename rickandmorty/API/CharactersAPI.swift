@@ -10,7 +10,7 @@ import Alamofire
 import SwiftyJSON
 
 class CharactersAPI {
-    public static let shared =  CharactersAPI()
+    public static let shared = CharactersAPI()
     
     func loadCharacters(completion: @escaping ([Character]) -> Void) {
         AF.request("https://rickandmortyapi.com/api/character/?status=alive&name=").responseJSON { response in

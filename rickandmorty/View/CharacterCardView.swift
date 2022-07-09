@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CharacterCardViewDelegate: AnyObject {
-    func onCardTap(cell: CharacterCardView)
+    func onCardTap(cell: CharacterCardView, index: Int)
 }
 
 class CharacterCardView: UICollectionViewCell {
@@ -28,24 +28,28 @@ class CharacterCardView: UICollectionViewCell {
         image.contentMode = .scaleAspectFill
         return image
     }()
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
     
-    func setupView(name: String = "back", index: Int) {
+    func setupView(name: String = "back", match: Bool = false) {
         layer.cornerRadius = 8
         clipsToBounds = true
         
         card.image = UIImage(named: name)
-    
+        
         addSubview(card)
         card.fillSuperView()
         
         addSubview(back)
         back.fillSuperView()
         
-        charactersSelected = CharacterSelected(name: name, index: index)
+        if match {
+            back.removeFromSuperview()
+        }
+        
+        charactersSelected = CharacterSelected(name: name, match: match)
     }
     
     required init?(coder: NSCoder) {
