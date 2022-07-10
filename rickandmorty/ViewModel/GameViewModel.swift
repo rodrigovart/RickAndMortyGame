@@ -17,14 +17,14 @@ class GameViewModel {
     var cardsChacters: [String] = [
         "beth",
         "jerry",
-//        "jessica",
-//        "morty",
-//        "pessoa-passaro",
-//        "pickle-rick",
-//        "rick",
-//        "summer",
-//        "meeseeks",
-//        "scroopy"
+        "jessica",
+        "morty",
+        "pessoa-passaro",
+        "pickle-rick",
+        "rick",
+        "summer",
+        "meeseeks",
+        "scroopy"
     ]
     
     var cards = [String]()
