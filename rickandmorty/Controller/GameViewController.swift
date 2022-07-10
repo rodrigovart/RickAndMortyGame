@@ -69,12 +69,9 @@ extension GameViewController: UICollectionViewDataSource {
         viewModel.charactersSelected.removeAll()
         
         myCell.setupView(name: viewModel.cards[indexPath.item])
-        
-        let matches = viewModel.matchesCard()
-        print("VIEW MODEL MATCHES: \(matches)")
-        print("CARD ISSELECTED: \(myCell.isSelected)")
-        matches.forEach { character in
-            if character.name == card {
+
+        viewModel.charactersMatched.forEach { character in
+            if character.name == card, character.match {
                 myCell.sendSubviewToBack(myCell.back)
             }
         }

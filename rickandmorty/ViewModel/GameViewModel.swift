@@ -7,10 +7,6 @@
 
 import UIKit
 
-struct Matches {
-    var matches: CharacterSelected
-}
-
 struct CharacterSelected {
     var name: String = ""
     var match: Bool = false
@@ -18,21 +14,6 @@ struct CharacterSelected {
 }
 
 class GameViewModel {
-    var cardsChactersMock: [String] = [
-        "beth",
-        "beth",
-        "jerry",
-        "jerry",
-        //        "jessica",
-        //        "morty",
-        //        "pessoa-passaro",
-        //        "pickle-rick",
-        //        "rick",
-        //        "summer",
-        //        "meeseeks",
-        //        "scroopy"
-    ]
-    
     var cardsChacters: [String] = [
         "beth",
         "jerry",
@@ -50,8 +31,6 @@ class GameViewModel {
     
     var charactersSelected = [String]()
     
-    public var matches: [Matches] = []
-    
     var charactersMatched: [CharacterSelected] = []
     
     func initGame() {
@@ -65,13 +44,7 @@ class GameViewModel {
         
         cards.shuffle()
     }
-    
-    func initGameMock() {
-        cards.append(contentsOf: cardsChactersMock)
-        
-        //        cards.shuffle()
-    }
-    
+
     func isMatchCard(character: String, match: Bool, index: Int) {
         charactersSelected.append(character)
                 
@@ -79,12 +52,6 @@ class GameViewModel {
             if charactersSelected[0] == charactersSelected[1] {
                 charactersMatched.append(CharacterSelected(name: character, match: true, index: index))
             }
-        }
-    }
-    
-    func matchesCard() -> [CharacterSelected] {
-        return charactersMatched.filter { characters in
-            return characters.match == true
         }
     }
 }
