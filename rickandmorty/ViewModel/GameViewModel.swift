@@ -17,14 +17,14 @@ class GameViewModel {
     var cardsChacters: [String] = [
         "beth",
         "jerry",
-        "jessica",
-        "morty",
-        "pessoa-passaro",
-        "pickle-rick",
-        "rick",
-        "summer",
-        "meeseeks",
-        "scroopy"
+//        "jessica",
+//        "morty",
+//        "pessoa-passaro",
+//        "pickle-rick",
+//        "rick",
+//        "summer",
+//        "meeseeks",
+//        "scroopy"
     ]
     
     var cards = [String]()
@@ -53,5 +53,9 @@ class GameViewModel {
                 charactersMatched.append(CharacterSelected(name: character, match: true, index: index))
             }
         }
+    }
+    
+    func winGame() -> Bool {
+        return charactersMatched.count == cardsChacters.count
     }
 }

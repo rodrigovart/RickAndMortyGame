@@ -6,6 +6,7 @@
 //
 
 import ProgressHUD
+import SCLAlertView
 
 class GameViewController: UIViewController {
     
@@ -50,7 +51,16 @@ class GameViewController: UIViewController {
     }
     
     @objc func reload() {
+        viewModel.charactersMatched.removeAll()
+        viewModel.cards.removeAll()
+        viewModel.initGame()
         collectionView?.reloadData()
+    }
+    
+    func showWinAlert() {
+        let alertView = SCLAlertView()
+        alertView.addButton("Recomeçar", target: self, selector: #selector(reload))
+        alertView.showSuccess("Parabéns", subTitle: "O jogo terminou!")
     }
 }
 
@@ -96,7 +106,11 @@ extension GameViewController: CharacterCardViewDelegate {
         
         if viewModel.charactersSelected.count == 2 {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.reload()
+                if self.viewModel.winGame() {
+                    self.showWinAlert()
+                    return
+                }
+                self.collectionView?.reloadData()
             }
         }
     }
