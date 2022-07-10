@@ -5,9 +5,8 @@
 //  Created by Rodrigo Vart on 30/06/22.
 //
 
-import Foundation
 import UIKit
-import iProgressHUD
+import ProgressHUD
 
 class ChooseCharacterViewController: UIViewController {
 
@@ -56,23 +55,16 @@ class ChooseCharacterViewController: UIViewController {
 
 extension ChooseCharacterViewController: UIViewControllerDelegate {
     func showLoader() {
-        iProgressHUD.sharedInstance().attachProgress(toView: self.view)
-        view.updateColors(modalColor: .clear, boxColor: .clear, indicatorColor: .systemGray, captionColor: .systemGray)
-        view.updateCaption(text: "")
-        view.updateIndicator(style: .pacman)
-        view.showProgress()
+
     }
     
     func dissmisLoader() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.view.dismissProgress()
+            
         }
     }
     
-    func configureLoader(view: UIView, caption: String = "Loading", type: NVActivityIndicatorType = .circleStrokeSpin) {
-        iProgressHUD.sharedInstance().attachProgress(toView: view)
-        view.updateCaption(text: caption)
-        view.updateIndicator(style: type)
-        view.updateColors(modalColor: .white, boxColor: .systemGray, indicatorColor: .white, captionColor: .white)
+    func configureLoader(view: UIView, caption: String = "Loading") {
+
     }
 }

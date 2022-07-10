@@ -55,6 +55,8 @@ class GameViewModel {
     var charactersMatched: [CharacterSelected] = []
     
     func initGame() {
+        cards.removeAll()
+        
         let cardsReversed = Array(cardsChacters.reversed())
         let cardsSorted = Array(cardsChacters.sorted())
         
@@ -70,17 +72,14 @@ class GameViewModel {
         //        cards.shuffle()
     }
     
-    func isMatchCard(character: String, match: Bool, index: Int) -> Bool {
+    func isMatchCard(character: String, match: Bool, index: Int) {
         charactersSelected.append(character)
-        
+                
         if charactersSelected.count == 2 {
             if charactersSelected[0] == charactersSelected[1] {
                 charactersMatched.append(CharacterSelected(name: character, match: true, index: index))
-                return true
             }
         }
-        
-        return false
     }
     
     func matchesCard() -> [CharacterSelected] {

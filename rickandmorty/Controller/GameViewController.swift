@@ -5,7 +5,7 @@
 //  Created by Rodrigo Vart on 01/07/22.
 //
 
-import UIKit
+import ProgressHUD
 
 class GameViewController: UIViewController {
     
@@ -16,6 +16,8 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        showLoader()
         
         viewModel.initGame()
         
@@ -43,6 +45,8 @@ class GameViewController: UIViewController {
         super.viewDidAppear(animated)
         let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.refresh, target: self, action: #selector(reload))
         navigationItem.rightBarButtonItem = button
+        
+        dissmisLoader()
     }
     
     @objc func reload() {
@@ -91,12 +95,24 @@ extension GameViewController: UICollectionViewDelegate {
 
 extension GameViewController: CharacterCardViewDelegate {
     func onCardTap(cell: CharacterCardView, index: Int) {
-        _ = viewModel.isMatchCard(character: cell.charactersSelected.name, match: cell.charactersSelected.match, index: index)
+       viewModel.isMatchCard(character: cell.charactersSelected.name, match: cell.charactersSelected.match, index: index)
         
         if viewModel.charactersSelected.count == 2 {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.reload()
             }
+        }
+    }
+}
+
+extension GameViewController: UIViewControllerDelegate {
+    func showLoader() {
+        ProgressHUD.show("Loading")
+    }
+    
+    func dissmisLoader() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            ProgressHUD.dismiss()
         }
     }
 }
